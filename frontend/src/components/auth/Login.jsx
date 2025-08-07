@@ -41,12 +41,14 @@ const Login = () => {
                 navigate("/");
                 toast.success(res.data.message);
             }
-        } catch (error) {
+        } 
+        catch (error) {
             console.log(error);
             toast.error(error.response.data.message);
         } finally {
             dispatch(setLoading(false));
         }
+
     }
     useEffect(()=>{
         if(user){
@@ -66,7 +68,7 @@ const Login = () => {
                             value={input.email}
                             name="email"
                             onChange={changeEventHandler}
-                            placeholder="patel@gmail.com"
+                            placeholder="Email"
                         />
                     </div>
 
@@ -77,7 +79,7 @@ const Login = () => {
                             value={input.password}
                             name="password"
                             onChange={changeEventHandler}
-                            placeholder="patel@gmail.com"
+                            placeholder="password"
                         />
                     </div>
                     <div className='flex items-center justify-between'>
