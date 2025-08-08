@@ -23,11 +23,10 @@ const JobDescription = () => {
             const res = await axios.get(`${APPLICATION_API_END_POINT}/apply/${jobId}`, {withCredentials:true});
             
             if(res.data.success){
-                setIsApplied(true); // Update the local state
+                setIsApplied(true); 
                 const updatedSingleJob = {...singleJob, applications:[...singleJob.applications,{applicant:user?._id}]}
-                dispatch(setSingleJob(updatedSingleJob)); // helps us to real time UI update
+                dispatch(setSingleJob(updatedSingleJob)); 
                 toast.success(res.data.message);
-
             }
         } catch (error) {
             console.log(error);
@@ -41,7 +40,7 @@ const JobDescription = () => {
                 const res = await axios.get(`${JOB_API_END_POINT}/get/${jobId}`,{withCredentials:true});
                 if(res.data.success){
                     dispatch(setSingleJob(res.data.job));
-                    setIsApplied(res.data.job.applications.some(application=>application.applicant === user?._id)) // Ensure the state is in sync with fetched data
+                    setIsApplied(res.data.job.applications.some(application=>application.applicant === user?._id)) 
                 }
             } catch (error) {
                 console.log(error);
@@ -56,19 +55,19 @@ const JobDescription = () => {
                 <div>
                     <h1 className='font-bold text-xl'>{singleJob?.title}</h1>
                     <div className='flex items-center gap-2 mt-4'>
-                        <Badge className={'text-blue-700 font-bold'} variant="ghost">{singleJob?.postion} Positions</Badge>
-                        <Badge className={'text-[#F83002] font-bold'} variant="ghost">{singleJob?.jobType}</Badge>
-                        <Badge className={'text-[#7209b7] font-bold'} variant="ghost">{singleJob?.salary}LPA</Badge>
+                        <Badge className={'text-blue-800 font-bold'} variant="ghost">{singleJob?.postion} Positions</Badge>
+                        <Badge className={'text-[#e41f1f] font-bold'} variant="ghost">{singleJob?.jobType}fullTime</Badge>
+                        <Badge className={'text-[#5f0b97] font-bold'} variant="ghost">{singleJob?.salary}LPA</Badge>
                     </div>
                 </div>
                 <Button
                 onClick={isApplied ? null : applyJobHandler}
                     disabled={isApplied}
-                    className={`rounded-lg ${isApplied ? 'bg-gray-600 cursor-not-allowed' : 'bg-[#7209b7] hover:bg-[#5f32ad]'}`}>
+                    className={`rounded-lg ${isApplied ? 'bg-gray-600 cursor-not-allowed' : 'bg-[#7810be] hover:bg-[#5f32ad]'}`}>
                     {isApplied ? 'Already Applied' : 'Apply Now'}
                 </Button>
             </div>
-            <h1 className='border-b-2 border-b-gray-300 font-medium py-4'>Job Description</h1>
+            <h1 className='border-b-2 border-b-gray-300 font-semibold py-4'>Job Description</h1>
             <div className='my-4'>
                 <h1 className='font-bold my-1'>Role: <span className='pl-4 font-normal text-gray-800'>{singleJob?.title}</span></h1>
                 <h1 className='font-bold my-1'>Location: <span className='pl-4 font-normal text-gray-800'>{singleJob?.location}</span></h1>

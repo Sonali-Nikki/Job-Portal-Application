@@ -66,8 +66,6 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         console.log(input);
     }
 
-
-
     return (
         <div>
             <Dialog open={open}>

@@ -10,7 +10,6 @@ import UpdateProfileDialog from './UpdateProfileDialog'
 import { useSelector } from 'react-redux'
 import useGetAppliedJobs from '@/hooks/useGetAppliedJobs'
 
-// const skills = ["Html", "Css", "Javascript", "Reactjs"]
 const isResume = true;
 
 const Profile = () => {
@@ -21,11 +20,11 @@ const Profile = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-4xl mx-auto bg-white border border-gray-200 rounded-2xl my-5 p-8'>
+            <div className='max-w-4xl mx-auto bg-slate-100 border border-gray-300 rounded-2xl my-5 p-8'>
                 <div className='flex justify-between'>
                     <div className='flex items-center gap-4'>
                         <Avatar className="h-24 w-24">
-                            <AvatarImage src="https://www.shutterstock.com/image-vector/circle-line-simple-design-logo-600nw-2174926871.jpg" alt="profile" />
+                            <AvatarImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKaiKiPcLJj7ufrj6M2KaPwyCT4lDSFA5oog&s" alt="profile" />
                         </Avatar>
                         <div>
                             <h1 className='font-medium text-xl'>{user?.fullname}</h1>
@@ -44,11 +43,11 @@ const Profile = () => {
                         <span>{user?.phoneNumber}</span>
                     </div>
                 </div>
-                <div className='my-5'>
+                <div className='my-5 text-lg'>
                     <h1>Skills</h1>
                     <div className='flex items-center gap-1'>
                         {
-                            user?.profile?.skills.length !== 0 ? user?.profile?.skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>NA</span>
+                            user?.profile?.skills.length !== 0 ? user?.profile?.skills.map((item, index) => <Badge key={index}>{item}</Badge>) : <span>HTML, CSS, JavaScript, Nodejs, React</span>
                         }
                     </div>
                 </div>
@@ -61,7 +60,6 @@ const Profile = () => {
             </div>
             <div className='max-w-4xl mx-auto bg-white rounded-2xl'>
                 <h1 className='font-bold text-lg my-5'>Applied Jobs</h1>
-                {/* Applied Job Table   */}
                 <AppliedJobTable />
             </div>
             <UpdateProfileDialog open={open} setOpen={setOpen}/>
