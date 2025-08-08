@@ -1,4 +1,4 @@
-# Job Portal Application
+# 📘 Job Portal Application
 
 This is a full-stack Job Portal web app that I built using the MERN stack (MongoDB, Express.js, React, Node.js). It allows users to register, log in, manage their profile, and apply for jobs. Employers can post job openings and view applicants.
 
@@ -6,7 +6,18 @@ I built this project to practice real-world web development using modern technol
 
 ---
 
-##  Tech Stack Used
+## 🔗 API Endpoints
+
+| Method | Route               | Description                |
+|--------|---------------------|----------------------------|
+| GET    | /jobs               | Get all jobs               |
+| POST   | /jobs               | Add job (admin only)       |
+| PUT    | /jobs/:id           | Edit job (admin only)      |
+| DELETE | /jobs/:id           | Delete job (admin only)    |
+| POST   | /apply/:jobId       | Apply to a job             |
+
+
+## 🛠️ Tech Stack Used
 
 - **Frontend**: React.js, Tailwind CSS / Bootstrap (used as per need), React Router
 - **Backend**: Node.js, Express.js
@@ -17,7 +28,7 @@ I built this project to practice real-world web development using modern technol
 
 ---
 
-##  Main Features
+## 🚀 Main Features
 
 ### For Job Seekers:
 - Register and log in
@@ -30,7 +41,7 @@ I built this project to practice real-world web development using modern technol
 
 ---
 
-##  How to Run the Project Locally
+## ⚙️ Setup Instructions
 
 ### Step 1: Clone the repository
 
